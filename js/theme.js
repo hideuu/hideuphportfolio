@@ -14,11 +14,9 @@ document.documentElement.setAttribute("data-theme", initialTheme);
 
 document.addEventListener("DOMContentLoaded", () => {
   const themeToggle = document.getElementById("theme-toggle");
-  const themeIcon = document.getElementById("theme-icon");
 
+  // the sun/moon icon swap is done in style.css with [data-theme="light"] #theme-icon
   function updateToggle(theme) {
-    const iconName = theme === "light" ? "moon" : "sun";
-    themeIcon.style.setProperty("--src", `url('../assets/icons/${iconName}.svg')`);
     themeToggle.setAttribute(
       "aria-label",
       theme === "light" ? "Switch to dark mode" : "Switch to light mode"

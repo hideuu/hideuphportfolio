@@ -18,6 +18,9 @@ async function loadContributions() {
     cal.appendChild(cell);
   });
 
+  // start scrolled to the newest weeks on small screens
+  cal.scrollLeft = cal.scrollWidth;
+
   meta.textContent = `@hideuu · ${total} contributions in the last year`;
 }
 

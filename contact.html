@@ -4,26 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | &lt;/Hideu.&gt;</title>
+    <meta name="description" content="Get in touch with Andy Hamon for projects and collaborations.">
+    <meta property="og:title" content="Contact — Andy Hamon">
+    <meta property="og:description" content="Get in touch with Andy Hamon for projects and collaborations.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hideuu.github.io/portfolio/contact.html">
+    <meta property="og:image" content="https://hideuu.github.io/portfolio/assets/images/og-image.jpg">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/style.css">
-    
-    <script src="js/contact-form.js"></script>
+
     <script src="js/animations.js"></script>
     <script src="js/theme.js"></script>
+    <script src="js/menu.js" defer></script>
 </head>
 <body>
     <header>
         <a href="index.html"><h2 class="logo">&lt;/hideu.&gt;</h2></a>
 
-        <div class="nav-buttons">
+        <div class="nav-buttons" id="nav-buttons">
             <a href="index.html" class="nav-button">Home</a>
             <a href="projects.html" class="nav-button">Projects</a>
             <a href="about.html" class="nav-button">About</a>
             <a href="contact.html" class="nav-button active" aria-current="page">Contact</a>
         </div>
 
-        <button id="theme-toggle" aria-label="Switch to light mode">
-            <span class="icon" id="theme-icon" style="--src: url('../assets/icons/sun.svg')"></span>
-        </button>
+        <div class="header-actions">
+            <button id="theme-toggle" aria-label="Switch to light mode">
+                <span class="icon icon-sun" id="theme-icon"></span>
+            </button>
+            <button id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-buttons">
+                <span class="icon icon-menu-2" id="menu-icon"></span>
+            </button>
+        </div>
     </header>
 
     <section>
@@ -65,30 +77,30 @@
                     Available for projects
                 </span>
 
-                <a href="mailto:you@email.com" class="contact-info-row">
+                <a href="mailto:andyhamon2005@gmail.com" class="contact-info-row">
                     <span class="contact-info-label">Email</span>
                     <span class="contact-info-value">andyhamon2005@gmail.com</span>
                 </a>
-                <a href="https://www.facebook.com/andy.hamon.21" class="contact-info-row">
+                <a href="https://www.facebook.com/andy.hamon.21" class="contact-info-row" target="_blank" rel="noopener noreferrer">
                     <span class="contact-info-label">
-                        <span class="icon" style="--src: url('../assets/icons/brand-facebook.svg')"></span>
+                        <span class="icon icon-brand-facebook"></span>
                         Facebook
                     </span>
-                    <span class="icon" style="--src: url('../assets/icons/arrow-up-right.svg')"></span>
+                    <span class="icon icon-arrow-up-right"></span>
                 </a>
-                <a href="https://www.instagram.com/hideuaf" class="contact-info-row">
+                <a href="https://www.instagram.com/hideuaf" class="contact-info-row" target="_blank" rel="noopener noreferrer">
                     <span class="contact-info-label">
-                        <span class="icon" style="--src: url('../assets/icons/brand-instagram.svg')"></span>
+                        <span class="icon icon-brand-instagram"></span>
                         Instagram
                     </span>
-                    <span class="icon" style="--src: url('../assets/icons/arrow-up-right.svg')"></span>
+                    <span class="icon icon-arrow-up-right"></span>
                 </a>
-                <a href="https://github.com/hideuu" class="contact-info-row">
+                <a href="https://github.com/hideuu" class="contact-info-row" target="_blank" rel="noopener noreferrer">
                     <span class="contact-info-label">
-                        <span class="icon" style="--src: url('../assets/icons/brand-github.svg')"></span>
+                        <span class="icon icon-brand-github"></span>
                         GitHub
                     </span>
-                    <span class="icon" style="--src: url('../assets/icons/arrow-up-right.svg')"></span>
+                    <span class="icon icon-arrow-up-right"></span>
                 </a>
                 <div class="contact-info-row">
                     <span class="contact-info-label">Based in</span>
@@ -104,27 +116,30 @@
             <span class="footer-text">©2026 Andy Hamon</span>
 
             <div class="social-container">
-            <a href="https://github.com/hideuu" class="social-link" aria-label="GitHub">
-                <span class="icon" style="--src: url('../assets/icons/brand-github.svg')"></span>
+            <a href="https://github.com/hideuu" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                <span class="icon icon-brand-github"></span>
             </a>
             <a href="mailto:andyhamon2005@gmail.com" class="social-link" aria-label="Email">
-                <span class="icon" style="--src: url('../assets/icons/mail.svg')"></span>
+                <span class="icon icon-mail"></span>
             </a>
-            <a href="https://www.instagram.com/hideuaf" class="social-link" aria-label="Instagram">
-                <span class="icon" style="--src: url('../assets/icons/brand-instagram.svg')"></span>
+            <a href="https://www.instagram.com/hideuaf" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                <span class="icon icon-brand-instagram"></span>
             </a>
-            <a href="https://www.facebook.com/andy.hamon.21" class="social-link" aria-label="Facebook">
-                <span class="icon" style="--src: url('../assets/icons/brand-facebook.svg')"></span>
+            <a href="https://www.facebook.com/andy.hamon.21" class="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                <span class="icon icon-brand-facebook"></span>
             </a>
-            <a href="#" class="social-link" aria-label="LinkedIn">
-                <span class="icon" style="--src: url('../assets/icons/brand-linkedin.svg')"></span>
+            <!-- LinkedIn: put your profile URL in href, then remove this comment wrapper
+
+            <a href="#" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <span class="icon icon-brand-linkedin"></span>
             </a>
+            -->
             </div>
         </div>
 
         <p class="footer-quote">Tenma said that tomorrow will be a good day.</p>
     </footer>
-
+    <script src="js/contact-form.js"></script>
     <script src="js/manila-time.js"></script>
 </body>
 </html>

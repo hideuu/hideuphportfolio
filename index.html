@@ -4,29 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>&lt;/Hideu.&gt;</title>
+    <meta name="description" content="Andy Hamon (hideu) — IT student from the Philippines building web apps, games and networking projects.">
+    <meta property="og:title" content="Andy Hamon — Portfolio">
+    <meta property="og:description" content="Andy Hamon (hideu) — IT student from the Philippines building web apps, games and networking projects.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hideuu.github.io/portfolio/">
+    <meta property="og:image" content="https://hideuu.github.io/portfolio/assets/images/og-image.jpg">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/animations.js"></script>
     <script src="js/theme.js"></script>
+    <script src="js/menu.js" defer></script>
 </head>
 <body>
     <header>
         <a href="index.html"><h2 class="logo">&lt;/hideu.&gt;</h2></a>
 
-        <div class="nav-buttons">
+        <div class="nav-buttons" id="nav-buttons">
             <a href="index.html" class="nav-button active" aria-current="page">Home</a>
             <a href="projects.html" class="nav-button">Projects</a>
             <a href="about.html" class="nav-button">About</a>
             <a href="contact.html" class="nav-button">Contact</a>
         </div>
 
-        <button id="theme-toggle" aria-label="Switch to light mode">
-            <span class="icon" id="theme-icon" style="--src: url('../assets/icons/sun.svg')"></span>
-        </button>
+        <div class="header-actions">
+            <button id="theme-toggle" aria-label="Switch to light mode">
+                <span class="icon icon-sun" id="theme-icon"></span>
+            </button>
+            <button id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-buttons">
+                <span class="icon icon-menu-2" id="menu-icon"></span>
+            </button>
+        </div>
     </header>
 
     <section>
         <div class="hero-container">
-            <img src="assets/icons/hero-img.png" alt="Portrait of Andy Hamon" class="hero-image">
+            <img src="assets/images/hero.jpg" alt="Portrait of Andy Hamon" class="hero-image" width="235" height="313">
             <div class="hero-text-container">
                 <h1 class="page-title">Hej, I'm Andy!</h1>
                 <p class="hero-text">
@@ -45,9 +58,9 @@
             <h2 class="section-title">Project Highlights</h2>
             <div class="project-cards-container">
                 <div class="project-cards">
-                    <img src="assets/projects/meljune-login.png" alt="Web-Based POS for Meljune Pet Supplies screenshot" class="project-img">
+                    <img src="assets/projects/meljune-dashboard.png" alt="Web-Based POS for Meljune Pet Supplies screenshot" class="project-img" loading="lazy">
                     <h2>Web-Based POS for Meljune Pet Supplies</h2>
-                    <p>A POS system built with MERN stack for Meljune Pet Supplies.</p>
+                    <p>A point-of-sale system for Meljune Pet Supplies, built with React, Express, Node.js and MySQL.</p>
                     <div class="capsule-container">
                         <span class="capsule">MySQL</span>
                         <span class="capsule">Express.js</span>
@@ -56,15 +69,15 @@
                     </div>
 
                     <div class="link-container">
-                        <a href="#" class="github-link">
-                            <span class="icon link-icon" style="--src: url('../assets/icons/brand-github.svg')"></span>
+                        <a href="https://github.com/Carllinton/Meljune-Pet-Shop-Supplies" class="github-link" target="_blank" rel="noopener noreferrer">
+                            <span class="icon link-icon icon-brand-github"></span>
                             Source Code
                         </a>
                     </div>
                 </div>
 
                 <div class="project-cards">
-                    <img src="assets/projects/meljune-login.png" alt="Workout Logger Web App screenshot" class="project-img">
+                    <img src="assets/projects/meljune-login.png" alt="Workout Logger Web App screenshot" class="project-img" loading="lazy">
                     <h2>Workout Logger Web App</h2>
                     <p>A MERN application for logging workouts and tracking progress.</p>
                     <div class="capsule-container">
@@ -75,15 +88,15 @@
                     </div>
 
                     <div class="link-container">
-                        <a href="#" class="github-link">
-                            <span class="icon link-icon" style="--src: url('../assets/icons/brand-github.svg')"></span>
+                        <a href="https://github.com/hideuu/workout-tracker" class="github-link" target="_blank" rel="noopener noreferrer">
+                            <span class="icon link-icon icon-brand-github"></span>
                             Source Code
                         </a>
                     </div>
                 </div>
 
                 <div class="project-cards">
-                    <img src="assets/projects/meljune-login.png" alt="Apartment Management System screenshot" class="project-img">
+                    <img src="assets/projects/meljune-login.png" alt="Apartment Management System screenshot" class="project-img" loading="lazy">
                     <h2>Apartment Management System</h2>
                     <p>A python application for managing apartment rentals and tenant information.</p>
                     <div class="capsule-container">
@@ -93,8 +106,8 @@
                     </div>
 
                     <div class="link-container">
-                        <a href="#" class="github-link">
-                            <span class="icon link-icon" style="--src: url('../assets/icons/brand-github.svg')"></span>
+                        <a href="https://github.com/isilito/ApartmentSystem" class="github-link" target="_blank" rel="noopener noreferrer">
+                            <span class="icon link-icon icon-brand-github"></span>
                             Source Code
                         </a>
                     </div>
@@ -126,21 +139,24 @@
             <span class="footer-text">©2026 Andy Hamon</span>
 
             <div class="social-container">
-                <a href="https://github.com/hideuu" class="social-link" aria-label="GitHub">
-                    <span class="icon" style="--src: url('../assets/icons/brand-github.svg')"></span>
+                <a href="https://github.com/hideuu" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                    <span class="icon icon-brand-github"></span>
                 </a>
                 <a href="mailto:andyhamon2005@gmail.com" class="social-link" aria-label="Email">
-                    <span class="icon" style="--src: url('../assets/icons/mail.svg')"></span>
+                    <span class="icon icon-mail"></span>
                 </a>
-                <a href="https://www.instagram.com/hideuaf" class="social-link" aria-label="Instagram">
-                    <span class="icon" style="--src: url('../assets/icons/brand-instagram.svg')"></span>
+                <a href="https://www.instagram.com/hideuaf" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                    <span class="icon icon-brand-instagram"></span>
                 </a>
-                <a href="https://www.facebook.com/andy.hamon.21" class="social-link" aria-label="Facebook">
-                    <span class="icon" style="--src: url('../assets/icons/brand-facebook.svg')"></span>
+                <a href="https://www.facebook.com/andy.hamon.21" class="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                    <span class="icon icon-brand-facebook"></span>
                 </a>
-                <a href="#" class="social-link" aria-label="LinkedIn">
-                    <span class="icon" style="--src: url('../assets/icons/brand-linkedin.svg')"></span>
+                <!-- LinkedIn: put your profile URL in href, then remove this comment wrapper
+
+                <a href="#" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                    <span class="icon icon-brand-linkedin"></span>
                 </a>
+                -->
             </div>
         </div>
 
