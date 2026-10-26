@@ -102,6 +102,110 @@
         </div>
     </section>
 
+    <section>
+        <div class="education-container">
+            <h2 class="section-title">Education</h2>
+
+            <div class="education-list">
+                <div class="education-item">
+                    <span class="education-years">2024 - Present</span>
+                    <div class="education-details">
+                        <h3 class="education-degree">Bachelor of Science in Information Technology</h3>
+                        <p class="education-school">Pamantasan ng Lungsod ng Valenzuela · Valenzuela City, Philippines</p>
+                        <p class="education-desc">Hehhe</p>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <span class="education-years">2022 - 2024</span>
+                    <div class="education-details">
+                        <h3 class="education-degree">Senior High School - Information and Communications Technology</h3>
+                        <p class="education-school">Polo National High School · Valenzuela City, Philippines</p>
+                        <p class="education-desc">Hehhe</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="project-highlights-container">
+            <h2 class="section-title">Certifications</h2>
+
+            <div class="project-cards-container">
+                <div class="project-cards cert-card" role="button" tabindex="0" aria-haspopup="dialog">
+                    <img src="assets/certs/python-codesignal.png" alt="" class="project-img cert-img" loading="lazy">
+                    <h2>CodeSignal: Course Name</h2>
+                    <p>CodeSignal · 2026 · 5 certificates</p>
+                    <div class="capsule-container">
+                        <span class="capsule">Python</span>
+                        <span class="capsule">Algorithms</span>
+                    </div>
+
+                    <div class="link-container">
+                        <span class="github-link">
+                            <span class="icon link-icon icon-arrow-up-right"></span>
+                            View certificates
+                        </span>
+                    </div>
+
+                    <div class="cert-set" hidden>
+                        <figure class="cert-item">
+                            <img src="assets/certs/codesignal/cert-1.png" alt="Certificate 1 title" loading="lazy">
+                            <figcaption>Certificate 1 title</figcaption>
+                        </figure>
+                        <figure class="cert-item">
+                            <img src="assets/certs/codesignal/cert-2.png" alt="Certificate 2 title" loading="lazy">
+                            <figcaption>Certificate 2 title</figcaption>
+                        </figure>
+                        <!-- more figures -->
+                    </div>
+                </div>
+
+                <div class="project-cards cert-card" role="button" tabindex="0" aria-haspopup="dialog">
+                    <img src="assets/certs/sql-codesignal.png" alt="" class="project-img cert-img" loading="lazy">
+                    <h2>CodeSignal: Course Name</h2>
+                    <p>CodeSignal · 2026 · 5 certificates</p>
+                    <div class="capsule-container">
+                        <span class="capsule">Python</span>
+                        <span class="capsule">Algorithms</span>
+                    </div>
+
+                    <div class="link-container">
+                        <span class="github-link">
+                            <span class="icon link-icon icon-arrow-up-right"></span>
+                            View certificates
+                        </span>
+                    </div>
+
+                    <div class="cert-set" hidden>
+                        <figure class="cert-item">
+                            <img src="assets/certs/codesignal/cert-1.png" alt="Certificate 1 title" loading="lazy">
+                            <figcaption>Certificate 1 title</figcaption>
+                        </figure>
+                        <figure class="cert-item">
+                            <img src="assets/certs/codesignal/cert-2.png" alt="Certificate 2 title" loading="lazy">
+                            <figcaption>Certificate 2 title</figcaption>
+                        </figure>
+                        <!-- more figures -->
+                    </div>
+                </div>
+
+                <!-- copy the card for other courses -->
+            </div>
+        </div>
+    </section>
+
+    <dialog id="cert-modal" class="modal" aria-labelledby="cert-modal-title">
+        <div class="modal-head">
+            <h2 class="section-title" id="cert-modal-title"></h2>
+            <button type="button" id="cert-modal-close" aria-label="Close">
+                <span class="icon icon-x"></span>
+            </button>
+        </div>
+        <div class="modal-body" id="cert-modal-body"></div>
+    </dialog>
+
     <footer>
         <div class="footer-container">
             <span class="footer-text" id="manila-time">Manila</span>
@@ -131,7 +235,7 @@
 
         <p class="footer-quote">Tenma said that tomorrow will be a good day.</p>
     </footer>
-
+    <script src="js/certificates.js"></script>
     <script src="js/manila-time.js"></script>
 </body>
 </html>

@@ -503,6 +503,49 @@ section {
 }
 
 /* ==========================================================
+   10b. ABOUT PAGE — EDUCATION
+   ========================================================== */
+
+.education-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.education-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  padding: 20px 0;
+}
+
+.education-item + .education-item {
+  border-top: 1px solid var(--border);
+}
+
+.education-years {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.education-degree {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.0625rem;
+}
+
+.education-school {
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+.education-desc {
+  margin-top: 10px;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+/* ==========================================================
    11. CONTACT PAGE
    ========================================================== */
 .contact-container {
@@ -660,6 +703,99 @@ footer {
   text-align: center;
 }
 
+/* cards */
+.cert-card {
+  cursor: pointer;
+}
+
+/* the flex display on cards would override the hidden attribute */
+.project-cards[hidden] {
+  display: none;
+}
+
+/* ==========================================================
+   FILTER + MODAL
+   ========================================================== */
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.filter-button {
+  padding: 5px 15px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--muted);
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.filter-button:hover {
+  color: var(--fg);
+  border-color: var(--muted);
+}
+
+.filter-button.active {
+  background-color: var(--cta-bg);
+  border-color: var(--cta-bg);
+  color: var(--cta-fg);
+}
+
+.modal {
+  width: min(900px, calc(100% - 40px));
+  max-height: 85vh;
+  margin: auto;            /* the global reset removes the dialog's default centering */
+  padding: 24px;
+  overflow-y: auto;
+  background: var(--bg);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal[open] {
+  animation: fade-up 0.25s ease;
+}
+
+.modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+#cert-modal-close {
+  display: flex;
+  color: var(--fg);
+}
+
+.modal-body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.cert-item img {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background-color: var(--thumb);
+}
+
+.cert-item figcaption {
+  margin-top: 8px;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
 /* ==========================================================
    13. ANIMATIONS + HOVER
    ========================================================== */
@@ -705,6 +841,7 @@ footer {
   .reveal.visible { animation: none; }
   .reveal { opacity: 1; }
   * { transition: none !important; }
+  .modal[open] { animation: none; }
 }
 
 /* ==========================================================
@@ -864,6 +1001,15 @@ footer {
   .social-link .icon {
     width: 20px;
     height: 20px;
+  }
+
+  .education-item {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .modal-body {
+    grid-template-columns: 1fr;
   }
 }
 

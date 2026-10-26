@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const revealTargets = document.querySelectorAll(
-    ".project-cards, .skill-category, .github__panel, .contact-form, .contact-info-container"
+    ".project-cards, .skill-category, .education-item, .github__panel, .contact-form, .contact-info-container"
   );
 
   revealTargets.forEach((element) => {
