@@ -6,7 +6,18 @@
 
 declare(strict_types=1);
 
-$config = require __DIR__ . '/config.php';
+// never print PHP errors to visitors: they break the JSON reply and reveal server paths
+ini_set('display_errors', '0');
+
+// Settings come from environment variables (Vercel → Settings → Environment Variables).
+// For local testing with XAMPP, api/config.php is used instead if it exists.
+$config = file_exists(__DIR__ . '/config.php')
+    ? require __DIR__ . '/config.php'
+    : [
+        'resend_api_key' => getenv('RESEND_API_KEY') ?: '',
+        'to_email'       => getenv('CONTACT_TO_EMAIL') ?: 'andyhamon2005@gmail.com',
+        'from_email'     => getenv('CONTACT_FROM_EMAIL') ?: 'Portfolio <onboarding@resend.dev>',
+    ];
 
 $wantsJson = str_contains($_SERVER['HTTP_ACCEPT'] ?? '', 'application/json');
 
@@ -27,6 +38,11 @@ function respond(bool $ok, string $message, int $status = 200): void
 // 1. only accept form submissions
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     respond(false, 'Method not allowed.', 405);
+}
+
+if ($config['resend_api_key'] === '') {
+    error_log('RESEND_API_KEY is not set.');
+    respond(false, 'The contact form is not set up yet. Please email me directly.', 500);
 }
 
 // 2. honeypot: real people never tick the hidden checkbox, bots do
