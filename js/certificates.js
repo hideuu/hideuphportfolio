@@ -5,9 +5,8 @@ const closeButton = document.getElementById("cert-modal-close");
 
 function openModal(card) {
     modalTitle.textContent = card.querySelector("h2").textContent;
-    modalBody.replaceChildren(
-        ...[...card.querySelectorAll(".cert-set .cert-item")].map((item) => item.cloneNode(true))
-    );
+    const figures = [...card.querySelectorAll(".cert-set .cert-item")];
+    modalBody.replaceChildren(buildCarousel(figures));
     document.body.style.overflow = "hidden";
     modal.showModal();
 }
@@ -16,8 +15,8 @@ document.querySelectorAll(".cert-card").forEach((card) => {
     card.addEventListener("click", () => openModal(card));
     card.addEventListener("keydown", (event) => {
         if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        openModal(card);
+            event.preventDefault();
+            openModal(card);
         }
     });
 });

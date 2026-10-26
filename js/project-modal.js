@@ -3,13 +3,22 @@ const projectModalTitle = document.getElementById("project-modal-title");
 const projectModalBody = document.getElementById("project-modal-body");
 const projectModalClose = document.getElementById("project-modal-close");
 
+function getProjectFigures(card) {
+    // use the hidden gallery if the card has one...
+    const galleryFigures = [...card.querySelectorAll(".projects-card-gallery figure")];
+    if (galleryFigures.length > 0) return galleryFigures;
+
+    // ...otherwise fall back to the card's own image
+    const figure = document.createElement("figure");
+    figure.appendChild(card.querySelector(".project-img").cloneNode(true));
+    figure.querySelector("img").className = "";
+    return [figure];
+}
+
 function openProjectModal(card) {
     projectModalTitle.textContent = card.querySelector("h2").textContent;
 
-    // copy the parts of the card we want in the modal
-    const image = card.querySelector(".project-img").cloneNode(true);
-    image.className = "projects-modal-image";
-    image.removeAttribute("loading");
+    const carousel = buildCarousel(getProjectFigures(card));
 
     const details = card.querySelector(".projects-card-details").cloneNode(true);
     details.hidden = false;
@@ -18,7 +27,7 @@ function openProjectModal(card) {
     const capsules = card.querySelector(".capsule-container").cloneNode(true);
     const links = card.querySelector(".link-container").cloneNode(true);
 
-    projectModalBody.replaceChildren(image, capsules, details, links);
+    projectModalBody.replaceChildren(carousel, capsules, details, links);
 
     document.body.style.overflow = "hidden";
     projectModal.showModal();
@@ -51,4 +60,6 @@ projectModal.addEventListener("click", (event) => {
 // also runs when closed with Escape
 projectModal.addEventListener("close", () => {
     document.body.style.overflow = "";
+    // clears the modal, which also stops any video that was playing
+    projectModalBody.replaceChildren();
 });
