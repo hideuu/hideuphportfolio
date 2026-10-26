@@ -49,9 +49,7 @@
 
     <section>
         <div class="contact-container">
-            <form id="contact-form" class="contact-form">
-                <input type="hidden" name="access_key" value="544fd93c-f640-45d4-bb14-7df871fe9dd0">
-                <input type="hidden" name="subject" value="New message from my portfolio">
+            <form id="contact-form" class="contact-form" action="api/send-email.php" method="post">
                 <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off">
 
                 <div class="form-group">
