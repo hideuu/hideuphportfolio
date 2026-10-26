@@ -41,161 +41,260 @@
         <div class="page-header-container">
             <h1 class="page-title">Projects</h1>
             <p class="page-description">
-                Games, web apps, and school projects. Every build taught me something new and reflects what I was learning at the time.
+                Games, web apps, and school projects. Every build taught me something new and reflects what I was learning at the time. Click a project to read more.
             </p>
         </div>
     </section>
 
     <section>
+        <div class="filter-container">
+            <button type="button" class="filter-button active" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="filter-button" data-filter="web" aria-pressed="false">Web Apps</button>
+            <button type="button" class="filter-button" data-filter="desktop" aria-pressed="false">Desktop</button>
+            <button type="button" class="filter-button" data-filter="networking" aria-pressed="false">Networking</button>
+            <button type="button" class="filter-button" data-filter="design" aria-pressed="false">UI/UX Design</button>
+        </div>
+        <p id="filter-empty" class="page-description" hidden>No projects in this category yet.</p>
+
         <div class="projects-container">
-                <div class="project-cards">
-                    <img src="assets/projects/meljune-dashboard.png" alt="Web-Based POS for Meljune Pet Supplies screenshot" class="project-img" loading="lazy">
-                    <h2>Web-Based POS for Meljune Pet Supplies</h2>
-                    <p>A point-of-sale system for Meljune Pet Supplies, built with React, Express, Node.js and MySQL.</p>
-                    <div class="capsule-container">
+
+            <!-- ===== Gwynth's Printing ===== -->
+            <div class="project-cards projects-card-clickable" data-category="web" role="button" tabindex="0" aria-haspopup="dialog">
+                <img src="assets/projects/gwynthsprinting.png" alt="Gwynth's Printing online ordering site screenshot" class="project-img" loading="lazy">
+                <h2>Gwynth's Printing Online Ordering</h2>
+                <p>An online ordering system for a local print shop. Customers browse the catalog, upload design files, and place orders, while admins manage orders, messages, and reviews.</p>
+                <div class="capsule-container">
+                    <span class="capsule">PHP</span>
+                    <span class="capsule">MySQL</span>
+                    <span class="capsule">JavaScript</span>
+                    <span class="capsule">HTML/CSS</span>
+                </div>
+
+                <div class="link-container">
+                    <a href="https://hideuu.github.io/gwynthsprinting/" class="github-link" target="_blank" rel="noopener noreferrer">
+                        <span class="icon link-icon icon-arrow-up-right"></span>
+                        Live Demo (front-end only)
+                    </a>
+                    <a href="https://github.com/hideuu/gwynthsprinting" class="github-link" target="_blank" rel="noopener noreferrer">
+                        <span class="icon link-icon icon-brand-github"></span>
+                        Source Code
+                    </a>
+                </div>
+
+                <div class="projects-card-details" hidden>
+                    <h3>About</h3>
+                    <p>Gwynth's Printing needed a way to take orders online instead of through chat messages. The site lets customers browse printing services, upload their design files, choose a payment method, and leave reviews. Behind it, an admin panel handles incoming orders, contact messages, and review approval.</p>
+                    <h3>What I learned</h3>
+                    <ul>
+                        <li>Designing a MySQL schema for orders, reviews, and messages, and writing the SQL to connect them</li>
+                        <li>Handling file uploads safely in PHP</li>
+                        <li>Building a simple admin panel with approve/reject flows</li>
+                        <li>Running and testing a full PHP stack locally with XAMPP</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ===== ArtistGuessr ===== -->
+            <div class="project-cards projects-card-clickable" data-category="web" role="button" tabindex="0" aria-haspopup="dialog">
+                <img src="assets/projects/artistguessr-home.png" alt="ArtistGuessr app screenshot" class="project-img" loading="lazy">
+                <h2>ArtistGuessr</h2>
+                <p>A guessing game where players identify the artist from clues. DESCRIBE WHAT IT DOES IN ONE SENTENCE.</p>
+                <div class="capsule-container">
+                    <span class="capsule">React</span>
+                    <span class="capsule">Python</span>
+                    <span class="capsule">Tailwind.css</span>
+                </div>
+
+                <div class="link-container">
+                    <a href="https://artistguessr.vercel.app/" class="github-link" target="_blank" rel="noopener noreferrer">
+                        <span class="icon link-icon icon-arrow-up-right"></span>
+                        Live Demo
+                    </a>
+                    <a href="https://github.com/hideuu/artistguessr" class="github-link" target="_blank" rel="noopener noreferrer">
+                        <span class="icon link-icon icon-brand-github"></span>
+                        Source Code
+                    </a>
+                </div>
+
+                <div class="projects-card-details" hidden>
+                    <h3>About</h3>
+                    <p>WHY YOU BUILT IT AND HOW THE GAME WORKS (2–3 SENTENCES).</p>
+                    <h3>What I learned</h3>
+                    <ul>
+                        <li>LEARNING 1</li>
+                        <li>LEARNING 2</li>
+                        <li>LEARNING 3</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ===== Meljune POS ===== -->
+            <div class="project-cards projects-card-clickable" data-category="web" role="button" tabindex="0" aria-haspopup="dialog">
+                <img src="assets/projects/meljune-dashboard.png" alt="Web-Based POS for Meljune Pet Supplies screenshot" class="project-img" loading="lazy">
+                <h2>Web-Based POS for Meljune Pet Supplies</h2>
+                <p>A point-of-sale system for Meljune Pet Supplies, built with React, Express, Node.js and MySQL.</p>
+                <div class="capsule-container">
                     <span class="capsule">MySQL</span>
                     <span class="capsule">Express.js</span>
                     <span class="capsule">React</span>
                     <span class="capsule">Node.js</span>
-                    </div>
-
-                    <div class="link-container">
-                        <a href="https://github.com/Carllinton/Meljune-Pet-Shop-Supplies" class="github-link" target="_blank" rel="noopener noreferrer">
-                            <span class="icon link-icon icon-brand-github"></span>
-                            Source Code
-                        </a>
-                    </div>
+                    <span class="capsule">Team project</span>
                 </div>
 
-                <div class="project-cards">
-                    <img src="assets/projects/meljune-login.png" alt="Workout Logger Web App screenshot" class="project-img" loading="lazy">
-                    <h2>Workout Logger Web App</h2>
-                    <p>A MERN application for logging workouts and tracking progress.</p>
-                    <div class="capsule-container">
+                <div class="link-container">
+                    <a href="https://github.com/Carllinton/Meljune-Pet-Shop-Supplies" class="github-link" target="_blank" rel="noopener noreferrer">
+                        <span class="icon link-icon icon-brand-github"></span>
+                        Source Code
+                    </a>
+                </div>
+
+                <div class="projects-card-details" hidden>
+                    <h3>About</h3>
+                    <p>A team project building a full point-of-sale system for a pet supply store. It covers sales at the counter, product and category management, inventory, suppliers, customer credit, and sales reports, all behind a login.</p>
+                    <h3>What I learned</h3>
+                    <ul>
+                        <li>Building a React front-end that talks to a REST API made with Express</li>
+                        <li>Modeling real store data (products, stock, suppliers, credit) in MySQL</li>
+                        <li>Working in a team with Git branches and pull requests</li>
+                        <li>Testing API endpoints with Postman</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ===== Workout Logger ===== -->
+            <div class="project-cards projects-card-clickable" data-category="web" role="button" tabindex="0" aria-haspopup="dialog">
+                <img src="assets/projects/workout-buddy.png" alt="Workout Logger Web App screenshot" class="project-img" loading="lazy">
+                <h2>Workout Logger Web App</h2>
+                <p>A MERN application for logging workouts and tracking progress.</p>
+                <div class="capsule-container">
                     <span class="capsule">MongoDB</span>
                     <span class="capsule">Express.js</span>
                     <span class="capsule">React</span>
                     <span class="capsule">Node.js</span>
-                    </div>
-
-                    <div class="link-container">
-                        <a href="https://github.com/hideuu/workout-tracker" class="github-link" target="_blank" rel="noopener noreferrer">
-                            <span class="icon link-icon icon-brand-github"></span>
-                            Source Code
-                        </a>
-                    </div>
                 </div>
 
-                <div class="project-cards">
-                    <img src="assets/projects/meljune-login.png" alt="Apartment Management System screenshot" class="project-img" loading="lazy">
-                    <h2>Apartment Management System</h2>
-                    <p>A python application for managing apartment rentals and tenant information.</p>
-                    <div class="capsule-container">
+                <div class="link-container">
+                    <a href="https://github.com/hideuu/workout-tracker" class="github-link" target="_blank" rel="noopener noreferrer">
+                        <span class="icon link-icon icon-brand-github"></span>
+                        Source Code
+                    </a>
+                </div>
+
+                <div class="projects-card-details" hidden>
+                    <h3>About</h3>
+                    <p>A personal app for logging workouts: exercises, sets, reps, and weight. Users can add, edit, and delete entries and look back on their progress over time.</p>
+                    <h3>What I learned</h3>
+                    <ul>
+                        <li>Building a full CRUD app on the MERN stack</li>
+                        <li>Working with MongoDB documents and Mongoose schemas</li>
+                        <li>Managing state in React and keeping it in sync with the API</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ===== Apartment Management System ===== -->
+            <div class="project-cards projects-card-clickable" data-category="desktop" role="button" tabindex="0" aria-haspopup="dialog">
+                <img src="assets/projects/apartment_maindashboard.png" alt="Apartment Management System screenshot" class="project-img" loading="lazy">
+                <h2>Apartment Management System</h2>
+                <p>A Python application for managing apartment rentals and tenant information.</p>
+                <div class="capsule-container">
                     <span class="capsule">Python</span>
                     <span class="capsule">Tkinter</span>
                     <span class="capsule">JSON</span>
-                    </div>
-
-                    <div class="link-container">
-                        <a href="https://github.com/isilito/ApartmentSystem" class="github-link" target="_blank" rel="noopener noreferrer">
-                            <span class="icon link-icon icon-brand-github"></span>
-                            Source Code
-                        </a>
-                    </div>
+                    <span class="capsule">Team project</span>
                 </div>
 
-                <div class="project-cards">
-                    <img src="assets/projects/meljune-login.png" alt="Apartment Management System screenshot" class="project-img" loading="lazy">
-                    <h2>Apartment Management System</h2>
-                    <p>A python application for managing apartment rentals and tenant information.</p>
-                    <div class="capsule-container">
-                    <span class="capsule">Python</span>
-                    <span class="capsule">Tkinter</span>
-                    <span class="capsule">JSON</span>
-                    </div>
-
-                    <div class="link-container">
-                        <a href="https://github.com/isilito/ApartmentSystem" class="github-link" target="_blank" rel="noopener noreferrer">
-                            <span class="icon link-icon icon-brand-github"></span>
-                            Source Code
-                        </a>
-                    </div>
+                <div class="link-container">
+                    <a href="https://github.com/isilito/ApartmentSystem" class="github-link" target="_blank" rel="noopener noreferrer">
+                        <span class="icon link-icon icon-brand-github"></span>
+                        Source Code
+                    </a>
                 </div>
 
-                <div class="project-cards">
-                    <img src="assets/projects/meljune-login.png" alt="Apartment Management System screenshot" class="project-img" loading="lazy">
-                    <h2>Apartment Management System</h2>
-                    <p>A python application for managing apartment rentals and tenant information.</p>
-                    <div class="capsule-container">
-                    <span class="capsule">Python</span>
-                    <span class="capsule">Tkinter</span>
-                    <span class="capsule">JSON</span>
-                    </div>
+                <div class="projects-card-details" hidden>
+                    <h3>About</h3>
+                    <p>A desktop app for landlords to keep track of units, tenants, and rent payments. Data is saved to JSON files, so it runs without a database.</p>
+                    <h3>What I learned</h3>
+                    <ul>
+                        <li>Building desktop GUIs with Tkinter</li>
+                        <li>Saving and loading app data with JSON files</li>
+                        <li>Splitting a Python app into modules as a team</li>
+                    </ul>
+                </div>
+            </div>
 
-                    <div class="link-container">
-                        <a href="https://github.com/isilito/ApartmentSystem" class="github-link" target="_blank" rel="noopener noreferrer">
-                            <span class="icon link-icon icon-brand-github"></span>
-                            Source Code
-                        </a>
-                    </div>
+            <!-- ===== Network Topology ===== -->
+            <div class="project-cards projects-card-clickable" data-category="networking" role="button" tabindex="0" aria-haspopup="dialog">
+                <img src="assets/projects/net-preview.png" alt="Network topology diagram" class="project-img" loading="lazy">
+                <h2>Network Topology Design</h2>
+                <p>DESCRIBE THE NETWORK, e.g. a multi-department network with VLANs, routing, and DHCP, designed and simulated in Cisco Packet Tracer.</p>
+                <div class="capsule-container">
+                    <span class="capsule">Cisco Packet Tracer</span>
+                    <span class="capsule">VLANs</span>
+                    <span class="capsule">Routing</span>
                 </div>
 
-
-                <div class="project-cards">
-                    <img src="assets/projects/meljune-login.png" alt="Apartment Management System screenshot" class="project-img" loading="lazy">
-                    <h2>Apartment Management System</h2>
-                    <p>A python application for managing apartment rentals and tenant information.</p>
-                    <div class="capsule-container">
-                    <span class="capsule">Python</span>
-                    <span class="capsule">Tkinter</span>
-                    <span class="capsule">JSON</span>
-                    </div>
-
-                    <div class="link-container">
-                        <a href="https://github.com/isilito/ApartmentSystem" class="github-link" target="_blank" rel="noopener noreferrer">
-                            <span class="icon link-icon icon-brand-github"></span>
-                            Source Code
-                        </a>
-                    </div>
+                <div class="link-container">
+                    <a href="FILE-OR-REPO-LINK" class="github-link" target="_blank" rel="noopener noreferrer">
+                        <span class="icon link-icon icon-arrow-up-right"></span>
+                        View Project
+                    </a>
                 </div>
 
-                <div class="project-cards">
-                    <img src="assets/projects/meljune-login.png" alt="Apartment Management System screenshot" class="project-img" loading="lazy">
-                    <h2>Apartment Management System</h2>
-                    <p>A python application for managing apartment rentals and tenant information.</p>
-                    <div class="capsule-container">
-                    <span class="capsule">Python</span>
-                    <span class="capsule">Tkinter</span>
-                    <span class="capsule">JSON</span>
-                    </div>
+                <div class="projects-card-details" hidden>
+                    <h3>About</h3>
+                    <p>WHAT THE NETWORK IS FOR, HOW MANY DEVICES/DEPARTMENTS, AND WHAT IT DEMONSTRATES.</p>
+                    <h3>What I learned</h3>
+                    <ul>
+                        <li>LEARNING 1, e.g. configuring VLANs and inter-VLAN routing</li>
+                        <li>LEARNING 2, e.g. subnetting and IP addressing plans</li>
+                        <li>LEARNING 3</li>
+                    </ul>
+                </div>
+            </div>
 
-                    <div class="link-container">
-                        <a href="https://github.com/isilito/ApartmentSystem" class="github-link" target="_blank" rel="noopener noreferrer">
-                            <span class="icon link-icon icon-brand-github"></span>
-                            Source Code
-                        </a>
-                    </div>
+            <!-- ===== Trackify ===== -->
+            <div class="project-cards projects-card-clickable" data-category="design" role="button" tabindex="0" aria-haspopup="dialog">
+                <img src="assets/projects/trackify_home.png" alt="Trackify Figma design screenshot" class="project-img" loading="lazy">
+                <h2>Trackify</h2>
+                <p>DESCRIBE WHAT TRACKIFY IS FOR, e.g. a UI/UX design for an app that tracks ___, prototyped in Figma.</p>
+                <div class="capsule-container">
+                    <span class="capsule">Figma</span>
+                    <span class="capsule">UI/UX</span>
+                    <span class="capsule">Prototyping</span>
                 </div>
 
-                <div class="project-cards">
-                    <img src="assets/projects/meljune-login.png" alt="Apartment Management System screenshot" class="project-img" loading="lazy">
-                    <h2>Apartment Management System</h2>
-                    <p>A python application for managing apartment rentals and tenant information.</p>
-                    <div class="capsule-container">
-                    <span class="capsule">Python</span>
-                    <span class="capsule">Tkinter</span>
-                    <span class="capsule">JSON</span>
-                    </div>
-
-                    <div class="link-container">
-                        <a href="https://github.com/isilito/ApartmentSystem" class="github-link" target="_blank" rel="noopener noreferrer">
-                            <span class="icon link-icon icon-brand-github"></span>
-                            Source Code
-                        </a>
-                    </div>
+                <div class="link-container">
+                    <a href="https://www.figma.com/design/xia6gTm1iCkunvClr9GOsR/trackify?node-id=0-1&t=6hbagzneJARFerlL-1" class="github-link" target="_blank" rel="noopener noreferrer">
+                        <span class="icon link-icon icon-arrow-up-right"></span>
+                        View in Figma
+                    </a>
                 </div>
+
+                <div class="projects-card-details" hidden>
+                    <h3>About</h3>
+                    <p>WHO THE APP IS FOR, WHAT PROBLEM IT SOLVES, AND WHICH SCREENS YOU DESIGNED.</p>
+                    <h3>What I learned</h3>
+                    <ul>
+                        <li>LEARNING 1, e.g. building reusable components and auto layout in Figma</li>
+                        <li>LEARNING 2, e.g. turning wireframes into an interactive prototype</li>
+                        <li>LEARNING 3</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
     </section>
+
+    <dialog id="project-modal" class="modal" aria-labelledby="project-modal-title">
+        <div class="modal-head">
+            <h2 class="section-title" id="project-modal-title"></h2>
+            <button type="button" id="project-modal-close" aria-label="Close">
+                <span class="icon icon-x"></span>
+            </button>
+        </div>
+        <div class="projects-modal-body" id="project-modal-body"></div>
+    </dialog>
 
     <footer>
         <div class="footer-container">
@@ -203,24 +302,21 @@
             <span class="footer-text">©2026 Andy Hamon</span>
 
             <div class="social-container">
-            <a href="https://github.com/hideuu" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-                <span class="icon icon-brand-github"></span>
-            </a>
-            <a href="mailto:andyhamon2005@gmail.com" class="social-link" aria-label="Email">
-                <span class="icon icon-mail"></span>
-            </a>
-            <a href="https://www.instagram.com/hideuaf" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-                <span class="icon icon-brand-instagram"></span>
-            </a>
-            <a href="https://www.facebook.com/andy.hamon.21" class="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
-                <span class="icon icon-brand-facebook"></span>
-            </a>
-            <!-- LinkedIn: put your profile URL in href, then remove this comment wrapper
-
-            <a href="#" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-                <span class="icon icon-brand-linkedin"></span>
-            </a>
-            -->
+                <a href="https://github.com/hideuu" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                    <span class="icon icon-brand-github"></span>
+                </a>
+                <a href="mailto:andyhamon2005@gmail.com" class="social-link" aria-label="Email">
+                    <span class="icon icon-mail"></span>
+                </a>
+                <a href="https://www.instagram.com/hideuaf" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                    <span class="icon icon-brand-instagram"></span>
+                </a>
+                <a href="https://www.facebook.com/andy.hamon.21" class="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                    <span class="icon icon-brand-facebook"></span>
+                </a>
+                <a href="https://www.linkedin.com/in/andy-hamon-6a6b88442" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                    <span class="icon icon-brand-linkedin"></span>
+                </a>
             </div>
         </div>
 
@@ -229,5 +325,6 @@
 
     <script src="js/manila-time.js"></script>
     <script src="js/project-filter.js"></script>
+    <script src="js/project-modal.js"></script>
 </body>
 </html>

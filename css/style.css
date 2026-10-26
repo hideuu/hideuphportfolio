@@ -295,17 +295,38 @@ section {
   gap: 20px;
 }
 
-#view-projects {
+.index-hero-button-primary {
+  background-color: var(--cta-bg);
+  color: var(--cta-fg);
+  padding: 10px 10px;
+  border-radius: 5px;
+}
+
+.index-hero-button-secondary {
   border: 1px solid var(--border);
   padding: 10px 10px;
   border-radius: 5px;
 }
 
-#message-me-button {
-  background-color: var(--cta-bg);
-  color: var(--cta-fg);
-  padding: 10px 10px;
-  border-radius: 5px;
+.index-highlights-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.index-highlights-button-viewall {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-weight: 500;
+  transition: border-color 0.15s ease;
+}
+
+.index-highlights-button-viewall:hover {
+  border-color: var(--muted);
 }
 
 /* ==========================================================
@@ -772,7 +793,8 @@ footer {
   margin-bottom: 20px;
 }
 
-#cert-modal-close {
+#cert-modal-close,
+#project-modal-close {
   display: flex;
   color: var(--fg);
 }
@@ -794,6 +816,58 @@ footer {
   margin-top: 8px;
   font-size: 0.875rem;
   color: var(--muted);
+}
+
+/* ---------- project details modal ---------- */
+.projects-card-clickable {
+  cursor: pointer;
+}
+
+.projects-card-clickable:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 4px;
+}
+
+.projects-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.projects-modal-image {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background-color: var(--thumb);
+}
+
+.projects-modal-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.projects-modal-details h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.05rem;
+  margin-top: 6px;
+}
+
+.projects-modal-details p,
+.projects-modal-details li {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.projects-modal-details ul {
+  padding-left: 20px;
+  list-style: disc;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 /* ==========================================================
