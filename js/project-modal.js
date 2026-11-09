@@ -4,11 +4,10 @@ const projectModalBody = document.getElementById("project-modal-body");
 const projectModalClose = document.getElementById("project-modal-close");
 
 function getProjectFigures(card) {
-    // use the hidden gallery if the card has one...
     const galleryFigures = [...card.querySelectorAll(".projects-card-gallery figure")];
     if (galleryFigures.length > 0) return galleryFigures;
 
-    // ...otherwise fall back to the card's own image
+    // Use the card thumbnail when no gallery is available.
     const figure = document.createElement("figure");
     figure.appendChild(card.querySelector(".project-img").cloneNode(true));
     figure.querySelector("img").className = "";
@@ -35,13 +34,13 @@ function openProjectModal(card) {
 
 document.querySelectorAll(".projects-card-clickable").forEach((card) => {
     card.addEventListener("click", (event) => {
-        // let the Live Demo / Source Code links work normally
+        // Preserve navigation for links inside the card.
         if (event.target.closest("a")) return;
         openProjectModal(card);
     });
 
     card.addEventListener("keydown", (event) => {
-        // only when the card itself is focused, not a link inside it
+        // Ignore keyboard events from links inside the card.
         if (event.target !== card) return;
         if (event.key === "Enter" || event.key === " ") {
             event.preventDefault();
@@ -52,14 +51,13 @@ document.querySelectorAll(".projects-card-clickable").forEach((card) => {
 
 projectModalClose.addEventListener("click", () => projectModal.close());
 
-// click on the dark backdrop closes it
 projectModal.addEventListener("click", (event) => {
     if (event.target === projectModal) projectModal.close();
 });
 
-// also runs when closed with Escape
+// Restore scrolling for all close paths, including Escape.
 projectModal.addEventListener("close", () => {
     document.body.style.overflow = "";
-    // clears the modal, which also stops any video that was playing
+    // Remove the previous project content.
     projectModalBody.replaceChildren();
 });

@@ -1,16 +1,13 @@
 <?php
-// Receives the contact form and sends it to your inbox through Resend (https://resend.com).
-// Works two ways:
-//   - with JavaScript (js/contact-form.js): answers with JSON
-//   - without JavaScript (plain form submit): redirects back to contact.html?status=...
+// Send contact messages through Resend.
+// Return JSON for fetch requests or redirect normal form submissions.
 
 declare(strict_types=1);
 
-// never print PHP errors to visitors: they break the JSON reply and reveal server paths
+// Keep PHP errors out of JSON responses and public output.
 ini_set('display_errors', '0');
 
-// Settings come from environment variables (Vercel → Settings → Environment Variables).
-// For local testing with XAMPP, api/config.php is used instead if it exists.
+// Use local configuration when present; otherwise read deployment variables.
 $config = file_exists(__DIR__ . '/config.php')
     ? require __DIR__ . '/config.php'
     : [
@@ -35,7 +32,6 @@ function respond(bool $ok, string $message, int $status = 200): void
     exit;
 }
 
-// 1. only accept form submissions
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     respond(false, 'Method not allowed.', 405);
 }
@@ -45,18 +41,17 @@ if ($config['resend_api_key'] === '') {
     respond(false, 'The contact form is not set up yet. Please email me directly.', 500);
 }
 
-// 2. honeypot: real people never tick the hidden checkbox, bots do
+// Treat a filled honeypot as spam without revealing the check.
 if (!empty($_POST['botcheck'])) {
-    respond(true, "Message sent. I'll reply soon."); // pretend it worked so the bot moves on
+    respond(true, "Message sent. I'll reply soon.");
 }
 
-// 3. simple rate limit: one message per visitor every 60 seconds
+// Limit successful submissions to one per session every 60 seconds.
 session_start();
 if (isset($_SESSION['last_sent']) && time() - $_SESSION['last_sent'] < 60) {
     respond(false, 'Please wait a minute before sending another message.', 429);
 }
 
-// 4. read and validate the fields
 $name    = trim((string) ($_POST['name'] ?? ''));
 $email   = trim((string) ($_POST['email'] ?? ''));
 $message = trim((string) ($_POST['message'] ?? ''));
@@ -71,7 +66,7 @@ if (mb_strlen($name) > 100 || mb_strlen($message) > 5000) {
     respond(false, 'Your message is too long.', 422);
 }
 
-// 5. build the email (escape everything so nobody can inject HTML)
+// Escape submitted text before inserting it into the HTML email.
 $safeName    = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
 $safeEmail   = htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
 $safeMessage = nl2br(htmlspecialchars($message, ENT_QUOTES, 'UTF-8'));
@@ -91,13 +86,12 @@ HTML;
 $payload = [
     'from'     => $config['from_email'],
     'to'       => [$config['to_email']],
-    'reply_to' => $email,  // hitting "Reply" in your inbox answers the visitor
+    'reply_to' => $email,  // Route replies to the sender.
     'subject'  => "Portfolio message from {$name}",
     'html'     => $html,
     'text'     => "Name: {$name}\nEmail: {$email}\nSent: {$sentAt} (Manila)\n\n{$message}",
 ];
 
-// 6. send it through the Resend API
 $curl = curl_init('https://api.resend.com/emails');
 curl_setopt_array($curl, [
     CURLOPT_POST           => true,
@@ -116,7 +110,7 @@ $curlError = curl_error($curl);
 curl_close($curl);
 
 if ($response === false || $status < 200 || $status >= 300) {
-    // log the real reason on the server, show a friendly message to the visitor
+    // Keep provider error details in server logs.
     error_log('Resend error (' . $status . '): ' . ($curlError ?: $response));
     respond(false, 'Something went wrong. Please try again or email me directly.', 502);
 }

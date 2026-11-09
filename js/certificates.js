@@ -23,12 +23,11 @@ document.querySelectorAll(".cert-card").forEach((card) => {
 
 closeButton.addEventListener("click", () => modal.close());
 
-// click on the dark backdrop closes it
 modal.addEventListener("click", (event) => {
     if (event.target === modal) modal.close();
 });
 
-// also runs when closed with Escape
+// Restore scrolling for all close paths, including Escape.
 modal.addEventListener("close", () => {
     document.body.style.overflow = "";
 });

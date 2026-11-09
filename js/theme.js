@@ -15,7 +15,7 @@ document.documentElement.setAttribute("data-theme", initialTheme);
 document.addEventListener("DOMContentLoaded", () => {
   const themeToggle = document.getElementById("theme-toggle");
 
-  // the sun/moon icon swap is done in style.css with [data-theme="light"] #theme-icon
+  // CSS selects the icon from data-theme.
   function updateToggle(theme) {
     themeToggle.setAttribute(
       "aria-label",
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateToggle(initialTheme);
 
-  // clicking the button saves the choice, so it overrides the system setting from now on
+  // Save explicit choices so they take priority over the system theme.
   themeToggle.addEventListener("click", () => {
     const current = document.documentElement.getAttribute("data-theme");
     const next = current === "light" ? "dark" : "light";
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateToggle(next);
   });
 
-  // if the visitor never clicked the button, follow their system when it changes
+  // Follow system changes unless a theme preference is saved.
   systemQuery.addEventListener("change", () => {
     let hasSavedChoice = null;
     try {

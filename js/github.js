@@ -5,7 +5,7 @@ async function loadContributions() {
   const res = await fetch("data/contributions.json");
   const { total, days } = await res.json();
 
-  // pad the first column so the graph starts on a Sunday
+  // Align the first contribution date with its weekday.
   const pad = new Date(days[0].date + "T00:00:00").getDay();
   for (let i = 0; i < pad; i++) {
     cal.insertAdjacentHTML("beforeend", '<i class="day is-empty"></i>');
@@ -18,7 +18,7 @@ async function loadContributions() {
     cal.appendChild(cell);
   });
 
-  // start scrolled to the newest weeks on small screens
+  // Show the latest weeks when the calendar overflows.
   cal.scrollLeft = cal.scrollWidth;
 
   meta.textContent = `@hideuu · ${total} contributions in the last year`;

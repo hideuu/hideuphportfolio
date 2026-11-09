@@ -1,6 +1,6 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 
-const LOGIN = "hideuu";               // your GitHub username
+const LOGIN = "hideuu";
 const TOKEN = process.env.GH_TOKEN;
 
 const query = `

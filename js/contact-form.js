@@ -24,7 +24,7 @@ contactForm.addEventListener("submit", async (event) => {
   }
 });
 
-// shows a message after a no-JavaScript submit redirects back here
+// Display the result of a normal form submission after the redirect.
 const status = new URLSearchParams(window.location.search).get("status");
 if (status === "sent") formStatus.textContent = "Message sent. I'll reply soon.";
 if (status === "error") formStatus.textContent = "Something went wrong. Please try again.";

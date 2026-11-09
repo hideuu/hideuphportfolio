@@ -1,5 +1,4 @@
-// Builds an image carousel from a list of <figure> elements (each with an <img> and an optional <figcaption>).
-// Used by the project modal (projects.html) and the certificate modal (about.html).
+// Shared figure carousel for project and certificate dialogs.
 function buildCarousel(figures) {
     const carousel = document.createElement("div");
     carousel.className = "carousel";
@@ -16,7 +15,7 @@ function buildCarousel(figures) {
 
     carousel.appendChild(track);
 
-    // one image: no buttons or dots needed
+    // Navigation is only needed for multiple slides.
     if (figures.length < 2) return carousel;
 
     const controls = document.createElement("div");
@@ -64,17 +63,16 @@ function buildCarousel(figures) {
     prevButton.addEventListener("click", () => goTo(current - 1));
     nextButton.addEventListener("click", () => goTo(current + 1));
 
-    // swiping or scrolling the track also updates the counter and dots
+    // Keep controls in sync with touch and manual scrolling.
     track.addEventListener("scroll", update, { passive: true });
 
-    // used by the arrow-key handler below
+    // Expose slide navigation to the dialog keyboard handler.
     carousel.carouselStep = (step) => goTo(current + step);
 
     update();
     return carousel;
 }
 
-// left/right arrow keys move the carousel inside whichever modal is open
 document.addEventListener("keydown", (event) => {
     if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
     const carousel = document.querySelector("dialog[open] .carousel");
